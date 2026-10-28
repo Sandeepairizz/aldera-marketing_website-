@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ostium.studio/sitemap.xml

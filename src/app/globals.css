@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ALDERA — Studio Design System
+   Brand: Aldera /studio
+   Colors: Porcelain #F5F5F0 · Onyx #0A0A0A · Electric Red #FF2E1F · Alabaster #DFDFDA
+   Fonts: Outfit (Single font family across entire site, 400-700)
+   Strictly NO italics or serifs anywhere.
+   ============================================================ */
+
+:root {
+  --porcelain: #F5F5F0;
+  --onyx: #0A0A0A;
+  --electric-red: #FF2E1F;
+  --alabaster: #DFDFDA;
+
+  /* Font mappings: Single font family Outfit for everything */
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-inter: var(--font-sans);
+  --font-inter-tight: var(--font-sans);
+  --font-instrument-serif: var(--font-sans);
+
+  /* Design Tokens */
+  --header-h: 72px;
+  --gap-section: clamp(96px, 12vw, 192px);
+  --gap-block: clamp(48px, 6vw, 96px);
+  --gap-item: clamp(16px, 2vw, 32px);
+  --container-max: 1680px;
+  --container-px: clamp(20px, 4vw, 64px);
+
+  /* Semantic opacity tokens */
+  --onyx-70: rgba(10, 10, 10, 0.7);
+  --onyx-60: rgba(10, 10, 10, 0.6);
+  --onyx-40: rgba(10, 10, 10, 0.4);
+  --onyx-20: rgba(10, 10, 10, 0.2);
+  --onyx-10: rgba(10, 10, 10, 0.1);
+  --porcelain-70: rgba(245, 245, 240, 0.7);
+  --porcelain-60: rgba(245, 245, 240, 0.6);
+  --porcelain-40: rgba(245, 245, 240, 0.4);
+  --porcelain-20: rgba(245, 245, 240, 0.2);
+  --porcelain-10: rgba(245, 245, 240, 0.1);
+}
+
+/* ============================================================
+   SESSION BYPASS — loader skip on repeat visits
+   ============================================================ */
+html.aldera-loader-done #aldera-loader-root {
+  display: none !important;
+}
+
+/* ============================================================
+   BASE RESET & DOCUMENT
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-style: normal !important;
+}
+
+html {
+  background-color: var(--porcelain);
+  color: var(--onyx);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--porcelain);
+  color: var(--onyx);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* ============================================================
+   TYPE TOKENS (Strictly One Font: Outfit, No Italics, No Serifs)
+   ============================================================ */
+.font-display {
+  font-family: var(--font-sans), sans-serif !important;
+  font-style: normal !important;
+}
+
+.font-body {
+  font-family: var(--font-sans), sans-serif !important;
+  font-style: normal !important;
+}
+
+.font-sans {
+  font-family: var(--font-sans), sans-serif !important;
+  font-style: normal !important;
+}
+
+.font-mono, code, kbd, samp, pre {
+  font-family: var(--font-sans), sans-serif !important;
+  font-style: normal !important;
+  font-variant-numeric: tabular-nums;
+}
+
+/* H1: clamp(2rem, 4.2vw, 4rem) 700 / 1.05 / -0.035em */
+.text-h1 {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.05 !important;
+  letter-spacing: -0.035em !important;
+  text-wrap: balance;
+  font-style: normal !important;
+}
+
+/* H2: clamp(2.25rem, 5vw, 5rem) 700 / 1.02 / -0.04em */
+.text-h2 {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  line-height: 1.02 !important;
+  letter-spacing: -0.04em !important;
+  text-wrap: balance;
+  font-style: normal !important;
+}
+
+/* statement: clamp(2rem, 5vw, 4.75rem) 600 / 1.08 / -0.035em */
+.text-statement {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 600 !important;
+  font-size: clamp(2rem, 5vw, 4.75rem);
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+  text-wrap: balance;
+  font-style: normal !important;
+}
+
+/* P: clamp(1rem, 1.05vw, 1.125rem) 400 / 1.6, max-width 52ch */
+.text-p {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(1rem, 1.05vw, 1.125rem);
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+  max-width: 52ch;
+  text-wrap: pretty;
+  font-style: normal !important;
+}
+
+/* Label: 0.75rem 500, uppercase, +0.06em */
+.text-label {
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  font-style: normal !important;
+}
+
+/* Caption: 0.8125rem */
+.text-caption {
+  font-family: var(--font-sans), sans-serif !important;
+  font-size: 0.8125rem !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+
+/* Labels, buttons, navigation, captions: weight 500, letter-spacing 0 (0.04em only where the label is already uppercase) */
+.text-label {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase;
+  line-height: 1.2 !important;
+  font-style: normal !important;
+}
+
+.btn-token {
+  font-family: var(--font-sans), sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem;
+  letter-spacing: 0 !important;
+  font-style: normal !important;
+}
+
+/* Tabular numbers for counters, stats, and numerals */
+.tabular-nums, .numeral, .counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background-color: var(--electric-red);
+  color: #0A0A0A;
+}
+
+/* ============================================================
+   LENIS SMOOTH SCROLL
+   ============================================================ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ============================================================
+   FOCUS VISIBLE — Electric Red ring
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--electric-red);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   CUSTOM CURSOR — pointer hidden when custom cursor active
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--porcelain);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--onyx);
+  border-radius: 2px;
+}
+
+/* ============================================================
+   SECTION TRANSITION SLIDE-OVER (24px rounded top slide-over)
+   ============================================================ */
+.section-slide-over {
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.blend-diff {
+  mix-blend-mode: difference;
+}
+
+.mask-overflow {
+  overflow: hidden;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
